@@ -24,8 +24,9 @@ function App() {
           <NavgationBar />
           <BannerImg/>
           <ContentTitle/>
+        <ReceiveRed/>
           <ContentBar/>
-          <ReceiveRed/>
+          
           <Award/>
           <AddressList/>
 
