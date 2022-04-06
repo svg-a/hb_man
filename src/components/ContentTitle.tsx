@@ -32,14 +32,19 @@ export default function ContentTitle() {
 
     async function handleNumber(){
 
-        const token = new ethers.Contract(contract_RedAddress, redpkgInterface,provider )
-        let numbers = await token.counter()
-        let numberTen = JSON.stringify(parseInt(numbers._hex))
+        try {
+            const token = new ethers.Contract(contract_RedAddress, redpkgInterface,provider )
+            let numbers = await token.counter()
+            let numberTen = JSON.stringify(parseInt(numbers._hex))
 
-        let numberone = await token.record(Number(numberTen) -1,account)
-        // @ts-ignore
-        setNumber(parseInt(numberone._hex))
-        onOpen()
+            let numberone = await token.record(Number(numberTen) -1,account)
+            // @ts-ignore
+            setNumber(parseInt(numberone._hex))
+            onOpen()
+        }catch (error){
+            console.log(error)
+        }
+
     }
 
     return (
@@ -59,9 +64,9 @@ export default function ContentTitle() {
 
 
          <Flex  bg = 'dark' borderRadius="5px" padding='5px'>
-             <Text paddingLeft='10px' fontWeight='bold' fontSize='lg' color = 'white'> 红包条件 </Text>
+             <Text paddingLeft='10px' fontWeight='bold' fontSize='lg' color = 'white'> 今日红包剩余 </Text>
              <Spacer />
-             <Button marginRight='10px' fontWeight='bold' fontSize='lg' bg = 'whiteAlpha.800' onClick={handleNumber} > 领取记录 </Button>
+             <Button marginRight='10px' height='35px' fontWeight='bold' fontSize='lg' bg = 'whiteAlpha.800' onClick={handleNumber} > 领取记录 </Button>
 
              <Modal isCentered isOpen={isOpen} onClose={onClose}>
                  <ModalOverlay />

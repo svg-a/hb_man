@@ -9,7 +9,7 @@ import {
     Spacer,
     ListIcon,
     Box,
-    Button, Link
+    Button, Link, Wrap
 } from "@chakra-ui/react";
 import {MdCheckCircle,MdSettings} from "react-icons/all";
 import React, {useEffect, useState} from "react";
@@ -57,6 +57,7 @@ export default function AddressList() {
               address.length > 0 ?  address.map((address)=>
                   <ListItem  paddingTop='1px' bg='gray.800'  >
                     <Flex bg = 'whiteAlpha.100' borderRadius="5px" padding='5px'>
+                        <Wrap>
                         <WrapItem>
                             <Avatar name= { address[0].slice(
                                 address[0].length - 2,
@@ -65,6 +66,7 @@ export default function AddressList() {
                                 address[0].length ) }   src='' />
                             {/*https://bit.ly/dan-abramov*/}
                         </WrapItem>
+                        </Wrap>
                         <Spacer />
                         <Text display="flex"
                               alignItems="center" color="white" fontSize="md" fontWeight="medium"  >

@@ -13,6 +13,8 @@ import BannerImg from "./components/BannerImg";
 import ReceiveRed from "./components/ReceiveRed";
 import {useEthers} from "@usedapp/core";
 import {useEffect} from "react";
+import ReceiveRedTitle from "./components/ReceiveRedTitle";
+import ContentBottom from "./components/ContentBottom";
 
 function App() {
   return (
@@ -23,12 +25,13 @@ function App() {
 
           <NavgationBar />
           <BannerImg/>
+          <ReceiveRedTitle/>
+          <ReceiveRed/>
           <ContentTitle/>
-        <ReceiveRed/>
           <ContentBar/>
-          
           <Award/>
           <AddressList/>
+          <ContentBottom/>
 
       </Layout>
     </ChakraProvider>
