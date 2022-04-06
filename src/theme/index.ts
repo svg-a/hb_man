@@ -4,6 +4,16 @@ export default extendTheme({
   fonts: {
     heading: "red",
     body: "Inter",
-    bg:"gray.800",
+    bg:"red",
   },
+    styles: {
+        global: {
+            // styles for the `body`
+            body: {
+                bg: 'gray.800',
+            },
+            // styles for the `a`
+
+        },
+    },
 });
