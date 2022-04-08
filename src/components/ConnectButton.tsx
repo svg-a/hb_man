@@ -26,9 +26,10 @@ export default function ConnectButton({ handleOpenModal }: Props) {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const { account, activateBrowserWallet } = useEthers()
+    const { account,activate,activateBrowserWallet } = useEthers()
 
     const etherBalance = useEtherBalance(account);
+
 
     const [activateError, setActivateError] = useState('')
     const { error } = useEthers()
@@ -38,7 +39,7 @@ export default function ConnectButton({ handleOpenModal }: Props) {
         }
     }, [error])
 
-    const activate = async () => {
+    const activateMetamask = async () => {
         setActivateError('')
         activateBrowserWallet()
     }
@@ -50,14 +51,17 @@ export default function ConnectButton({ handleOpenModal }: Props) {
 
             })
             await provider.enable()
+            activate(provider)
         } catch (error) {
             console.error(error)
         }
     }
 
 
+
+
     function handleOpenMetamask() {
-        activate()
+        activateMetamask()
 
 
     }
